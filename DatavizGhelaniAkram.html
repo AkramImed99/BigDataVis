@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DataViz Ghelani Akram Imed Eddine</title>
+  </head>
+  <body>
+    <h2>Requête pour exemplifier la notion de "big data":</h2>
+    <code
+      >SELECT ?person ?name ?birth_date ?death_date ?gender ?country_of_citizenship ?occupation
+      WHERE {
+        ?person wdt:P31 wd:Q5.
+        ?person rdfs:label ?name.
+        OPTIONAL { ?person wdt:P569 ?birth_date }
+        OPTIONAL { ?person wdt:P570 ?death_date }
+        OPTIONAL { ?person wdt:P21 ?gender }
+        OPTIONAL { ?person wdt:P27 ?country_of_citizenship }
+        OPTIONAL { ?person wdt:P106 ?occupation }
+        FILTER(LANG(?name) = "en")
+      } LIMIT 100
+    </code>
+    <p>
+        Cette requête récupère les informations relatives à tous les individus (wd:Q5) comme leur nom, date de naissance, date de mort, genre, pays de nationalité et occupation. Elle utilise les propriétés (wdt:) pour récupérer ces informations et filtre pour s'assurer que les résultats soient en anglais. Cela peut retourner un grand nombre de résultats, ce qui illustre la notion de "big data".
+
+    </p>
+    <iframe style="width: 80vw; height: 50vh; border: none;" src="https://query.wikidata.org/embed.html#SELECT%20%3Fperson%20%3Fname%20%3Fbirth_date%20%3Fdeath_date%20%3Fgender%20%3Fcountry_of_citizenship%20%3Foccupation%0AWHERE%20%7B%0A%20%20%3Fperson%20wdt%3AP31%20wd%3AQ5.%0A%20%20%3Fperson%20rdfs%3Alabel%20%3Fname.%0A%20%20OPTIONAL%20%7B%20%3Fperson%20wdt%3AP569%20%3Fbirth_date%20%7D%0A%20%20OPTIONAL%20%7B%20%3Fperson%20wdt%3AP570%20%3Fdeath_date%20%7D%0A%20%20OPTIONAL%20%7B%20%3Fperson%20wdt%3AP21%20%3Fgender%20%7D%0A%20%20OPTIONAL%20%7B%20%3Fperson%20wdt%3AP27%20%3Fcountry_of_citizenship%20%7D%0A%20%20OPTIONAL%20%7B%20%3Fperson%20wdt%3AP106%20%3Foccupation%20%7D%0A%20%20FILTER(LANG(%3Fname)%20%3D%20%22en%22)%0A%7D%20LIMIT%20100" referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-popups"></iframe>
+    <h2>Requête pour exemplifier la notion de "high dimensional data":</h2>
+    <code
+      >SELECT ?book ?title ?author ?publisher ?publication_date ?language ?genre ?isbn ?number_of_pages 
+      WHERE {
+        ?book wdt:P31 wd:Q571.
+        ?book rdfs:label ?title.
+        OPTIONAL { ?book wdt:P50 ?author }
+        OPTIONAL { ?book wdt:P123 ?publisher }
+        OPTIONAL { ?book wdt:P577 ?publication_date }
+        OPTIONAL { ?book wdt:P407 ?language }
+        OPTIONAL { ?book wdt:P136 ?genre }
+        OPTIONAL { ?book wdt:P212 ?isbn }
+        OPTIONAL { ?book wdt:P1104 ?number_of_pages }
+        FILTER(LANG(?title) = "en")
+      } LIMIT 100
+    </code>
+    <p>
+        Cette requête récupère les informations relatives à tous les livres (wd:Q571) comme leur titre, auteur, éditeur, date de publication, langue, genre, ISBN et nombre de pages. Elle utilise plusieurs propriétés (wdt:) pour récupérer ces informations et filtre pour s'assurer que les résultats soient en anglais. Cela peut retourner un grand nombre de résultats et chaque livre peut avoir plusieurs propriétés associées, ce qui illustre la notion de "high dimensional data".
+
+
+
+    </p>
+    <iframe style="width: 80vw; height: 50vh; border: none;" src="https://query.wikidata.org/embed.html#SELECT%20%3Fbook%20%3Ftitle%20%3Fauthor%20%3Fpublisher%20%3Fpublication_date%20%3Flanguage%20%3Fgenre%20%3Fisbn%20%3Fnumber_of_pages%20%0AWHERE%20%7B%0A%20%20%3Fbook%20wdt%3AP31%20wd%3AQ571.%0A%20%20%3Fbook%20rdfs%3Alabel%20%3Ftitle.%0A%20%20OPTIONAL%20%7B%20%3Fbook%20wdt%3AP50%20%3Fauthor%20%7D%0A%20%20OPTIONAL%20%7B%20%3Fbook%20wdt%3AP123%20%3Fpublisher%20%7D%0A%20%20OPTIONAL%20%7B%20%3Fbook%20wdt%3AP577%20%3Fpublication_date%20%7D%0A%20%20OPTIONAL%20%7B%20%3Fbook%20wdt%3AP407%20%3Flanguage%20%7D%0A%20%20OPTIONAL%20%7B%20%3Fbook%20wdt%3AP136%20%3Fgenre%20%7D%0A%20%20OPTIONAL%20%7B%20%3Fbook%20wdt%3AP212%20%3Fisbn%20%7D%0A%20%20OPTIONAL%20%7B%20%3Fbook%20wdt%3AP1104%20%3Fnumber_of_pages%20%7D%0A%20%20FILTER(LANG(%3Ftitle)%20%3D%20%22en%22)%0A%7D%20LIMIT%20100" referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-popups"></iframe>
+  </body>
+</html>
